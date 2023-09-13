@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types'; // ES6
+
 import { BsBookmarkFill } from 'react-icons/bs'; // https://react-icons.github.io/react-icons
 
 
-
-const Blog = ({ blog }) => {
+const Blog = ({ blog, handleAddToBookmark }) => {
 
     const { title, cover, reading_time, author, author_img, posted_date, hashtags } = blog;
 
@@ -24,7 +24,7 @@ const Blog = ({ blog }) => {
                     <p className='text-sm'> {reading_time} min read
                     </p>
 
-                    <button className='ml-2 text-2xl text-red-600'> <BsBookmarkFill></BsBookmarkFill> </button>
+                    <button onClick={() => handleAddToBookmark(blog)} className='ml-2 text-2xl text-red-600'> <BsBookmarkFill></BsBookmarkFill> </button>
 
                 </div>
             </div>
@@ -44,7 +44,8 @@ const Blog = ({ blog }) => {
 //https://www.npmjs.com/package/prop-types
 
 Blog.propTypes = {
-    blog: PropTypes.object.isRequired
+    blog: PropTypes.object.isRequired,
+    handleAddToBookmark: PropTypes.func.isRequired
 }
 
 export default Blog;
