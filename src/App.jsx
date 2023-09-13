@@ -6,13 +6,13 @@ import Header from './Components/Header/Header'
 function App() {
 
   return (
-    <>
+    <div>
       <Header></Header>
-      <div className='md:flex'>
+      <div className='md:flex max-w-6xl mx-auto'>
         <Blogs></Blogs>
         <Bookmarks></Bookmarks>
       </div>
-    </>
+    </div>
   )
 }
 
