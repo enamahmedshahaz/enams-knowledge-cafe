@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'; // ES6
 import { BsBookmarkFill } from 'react-icons/bs'; // https://react-icons.github.io/react-icons
 
 
-const Blog = ({ blog, handleAddToBookmark }) => {
+const Blog = ({ blog, handleAddToBookmark, handleMarkAsRead }) => {
 
-    const { title, cover, reading_time, author, author_img, posted_date, hashtags } = blog;
+    const {id, title, cover, reading_time, author, author_img, posted_date, hashtags } = blog;
 
     return (
         <div className='mb-5 border-b-2'>
@@ -36,6 +36,8 @@ const Blog = ({ blog, handleAddToBookmark }) => {
                 }
             </p>
 
+            <button onClick= { () => handleMarkAsRead(id, reading_time)}  className='text-sm text-[#6047EC] font-normal mt-3 mb-5 underline'>Mark as Read</button>
+
         </div>
     );
 };
@@ -45,7 +47,8 @@ const Blog = ({ blog, handleAddToBookmark }) => {
 
 Blog.propTypes = {
     blog: PropTypes.object.isRequired,
-    handleAddToBookmark: PropTypes.func.isRequired
+    handleAddToBookmark: PropTypes.func.isRequired,
+    handleMarkAsRead: PropTypes.func.isRequired
 }
 
 export default Blog;
